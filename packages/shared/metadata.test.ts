@@ -4,7 +4,7 @@ import { privateKeyToAccount } from "viem/accounts";
 import { verifyMessage } from "viem";
 import { metadataHash, metadataSchema, metadataMessage } from "./metadata";
 const payload = {
-  name: "Verdant",
+  name: "Verd",
   symbol: "VERD",
   description: "Test",
   image: "",
@@ -14,7 +14,7 @@ const payload = {
 };
 test("metadata hashing is canonical and binds every published field", () => {
   assert.equal(
-    metadataHash({ ...payload, name: " Verdant " }),
+    metadataHash({ ...payload, name: " Verd " }),
     metadataHash(payload),
   );
   assert.notEqual(

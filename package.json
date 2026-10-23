@@ -1,5 +1,5 @@
 {
-  "name": "verdant-launchpad",
+  "name": "verd-launchpad",
   "private": true,
   "scripts": {
     "dev": "next dev --hostname 0.0.0.0",

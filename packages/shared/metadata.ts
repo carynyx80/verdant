@@ -39,5 +39,5 @@ export function metadataMessage(
   expires: string,
   origin: string,
 ) {
-  return `Verdant metadata upload\nOrigin: ${origin}\nWallet: ${wallet.toLowerCase()}\nNonce: ${nonce}\nPayload SHA256: ${hash}\nExpires: ${expires}\nThis signature authorizes one metadata upload. It does not authorize a blockchain transaction.`;
+  return `Verd metadata upload\nOrigin: ${origin}\nWallet: ${wallet.toLowerCase()}\nNonce: ${nonce}\nPayload SHA256: ${hash}\nExpires: ${expires}\nThis signature authorizes one metadata upload. It does not authorize a blockchain transaction.`;
 }

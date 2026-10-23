@@ -280,13 +280,13 @@ export default function App() {
         <Link href="/" className="brand">
           <Image
             className="brand-logo"
-            src="/images/verdant-logo.png"
+            src="/images/verd-logo.png"
             alt=""
             width={44}
             height={44}
             priority
           />
-          verdant<span className="brand-period">.</span>
+          verd<span className="brand-period">.</span>
         </Link>
         <nav className={mobile ? "open" : ""}>
           {[
@@ -336,7 +336,7 @@ export default function App() {
         {title === "home" ? (
           <>
             <section className="hero">
-              <span className="hero-edition">VERDANT STUDIO / VOL. 01</span>
+              <span className="hero-edition">VERD STUDIO / VOL. 01</span>
               <div className="hero-copy">
                 <div className="eyebrow">
                   <span /> A LAUNCHPAD FOR THE BUILDERS & DREAMERS
@@ -553,12 +553,12 @@ export default function App() {
           <Link className="brand" href="/">
             <Image
               className="brand-logo"
-              src="/images/verdant-logo.png"
+              src="/images/verd-logo.png"
               alt=""
               width={36}
               height={36}
             />
-            verdant<span className="brand-period">.</span>
+            verd<span className="brand-period">.</span>
           </Link>
           <p>Small fees. Lasting possibilities.</p>
         </div>
@@ -575,7 +575,7 @@ export default function App() {
         <span className="footer-chain">
           <span className="bnb">⟐</span>Built on BNB Chain
           <br />
-          <small>© 2026 Verdant Protocol</small>
+          <small>© 2026 Verd Protocol</small>
         </span>
       </footer>
       {wallet && (
@@ -691,7 +691,8 @@ function Launch({
   useEffect(() => {
     try {
       const stored = JSON.parse(
-        localStorage.getItem("verdant.launch-draft.v1") || "null",
+        localStorage.getItem("verd.launch-draft.v1") ||
+          localStorage.getItem("verdant.launch-draft.v1") || "null",
       );
       if (stored?.version === 1) {
         for (const [key, set] of [
@@ -735,7 +736,7 @@ function Launch({
     if (!draftLoaded) return;
     try {
       localStorage.setItem(
-        "verdant.launch-draft.v1",
+        "verd.launch-draft.v1",
         JSON.stringify({
           version: 1,
           name,

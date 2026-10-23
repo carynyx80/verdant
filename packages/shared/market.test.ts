@@ -91,7 +91,7 @@ test("chart frames filter by actual block time and exclude untimed data", () => 
 });
 test("identity validation matches contract byte limits and rejects unsafe links", () => {
   const good = {
-    name: "Verdant",
+    name: "Verd",
     symbol: "VERD",
     description: "",
     image: "",

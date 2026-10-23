@@ -1,4 +1,4 @@
-# Verdant
+# Verd
 
 Programmable creator-fee launchpad for BNB Chain. **Unaudited development release; not mainnet ready.** No mainnet transactions, deployments, statistics or revenue are fabricated.
 
