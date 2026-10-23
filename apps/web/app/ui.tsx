@@ -11,7 +11,7 @@ const colors=['#c7f36b','#8ebc75','#68998a','#708eae','#b7afd0'];
 const icons=[Flame,Droplets,Bot,Layers,Wallet];
 const strategies=[{name:'The flywheel',tag:'BALANCED GROWTH',weights:[30,25,20,15,10],text:'A little of everything. Built for the long game.'},{name:'Supply engine',tag:'BUYBACK FOCUSED',weights:[60,20,0,10,10],text:'Put more of every fee toward reducing supply.'},{name:'Builder’s fund',tag:'PRODUCT FIRST',weights:[10,20,25,35,10],text:'Turn community activity into product runway.'}];
 const factory=process.env.NEXT_PUBLIC_FACTORY_ADDRESS as Address|undefined;
-const api=process.env.NEXT_PUBLIC_API_URL||'http://localhost:3001';
+const api=process.env.NEXT_PUBLIC_API_URL||'/api';
 type Token={address:Address;market:Address;name:string;symbol:string;creator:string;creatorBps:number};
 function short(s:string){return `${s.slice(0,6)}…${s.slice(-4)}`}
 function Empty({title='The next wave starts here',text='Verified launches will appear when the protocol goes live.',action=true}:{title?:string;text?:string;action?:boolean}){return <div className="empty"><div className="empty-icon"><Activity size={23}/></div><h3>{title}</h3><p>{text}</p>{action&&<Link href="/launch" className="text-link">Create the first spark <ArrowUpRight size={16}/></Link>}</div>}

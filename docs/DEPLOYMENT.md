@@ -6,6 +6,7 @@ Use Node 22 LTS and pnpm 11.25.0. `pnpm install`, `pnpm db:generate`, then `pnpm
 Start PostgreSQL and Redis with `POSTGRES_PASSWORD=... docker compose -f infrastructure/compose.yaml up -d`. Set DATABASE_URL to match. Apply schema with `pnpm exec prisma migrate deploy --schema packages/database/prisma/schema.prisma`. Start worker only with a verified factory and exact deployment block. No private wallet keys are used by the indexer.
 
 ## Web hosting
+See [Vercel import settings](VERCEL.md) for exact build commands, root directory and public environment variables.
 Deploy apps/web as the Vercel root with pnpm workspace installation; build `pnpm --filter web build`, output `.next`. Set public API HTTPS origin, RPC endpoint, reviewed factory address and WalletConnect project ID. The frontend is a standard Next.js application; it has not been converted or published to Sites' Worker runtime.
 
 ## Persistent services

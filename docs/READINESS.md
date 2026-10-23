@@ -5,8 +5,8 @@ Development snapshot prepared 2026-10-22 (America/Los_Angeles).
 ## Delivery
 - Local application: http://localhost:3000 (production build preview).
 - Local API: http://localhost:3001 (unconfigured chain/database mode).
-- Git: local repository; no remote supplied, no GitHub push.
-- Hosted application: not deployed. Standard Next.js/Vercel configuration prepared.
+- Git remote configured: https://github.com/carynyx80/verdant. See GitHub for current published commits.
+- Hosted application: not deployed. Next.js/Vercel configuration and import runbook prepared in VERCEL.md.
 - BNB contracts: not deployed. No verified addresses.
 - Mainnet readiness: **BLOCKED**. Independent audit and several integration milestones outstanding.
 

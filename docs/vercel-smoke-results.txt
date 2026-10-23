@@ -1,0 +1,8 @@
+PASS HTTP 200 /
+PASS HTTP 200 /launch
+PASS HTTP 200 /docs
+PASS HTTP 200 /portfolio
+PASS hosted empty tokens response
+PASS hosted health response
+PASS metadata writes disabled without persistent API
+PASS unknown API route returns 404

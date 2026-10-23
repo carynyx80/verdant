@@ -14,6 +14,8 @@ pnpm api
 pnpm worker
 ```
 
+For Vercel, import this repository with Root Directory `apps/web`; [full deployment settings](docs/VERCEL.md). No credentials are needed to deploy the undeployed UI.
+
 Web: http://localhost:3000. API: http://localhost:3001. The frontend intentionally works without backend credentials, showing explicit undeployed/empty states. Copy public configuration to `apps/web/.env.local`. Load server variables through a process manager. See `.env.example` and [deployment runbook](docs/DEPLOYMENT.md).
 
 ```sh
@@ -38,7 +40,7 @@ This does not complete all requested production milestones. Utility execution in
 **Utility fee allocations remain escrowed in the current router. Do not fund this deployment candidate.** There is no admin bypass to move those funds. The backend is development scaffolding with executable indexing logic; PostgreSQL/Redis integration has not been run locally.
 
 ## Validation and status
-See [readiness report](docs/READINESS.md), [security risks](docs/SECURITY.md), and raw `docs/*-test-results.txt`. Unit tests and mock integration checks do not establish mainnet safety. Foundry source is supplied; local forge executable was unavailable. No GitHub remote was supplied; nothing has been pushed. No hosted application or verified contract addresses exist.
+See [readiness report](docs/READINESS.md), [security risks](docs/SECURITY.md), and raw `docs/*-test-results.txt`. Unit tests and mock integration checks do not establish mainnet safety. Foundry source is supplied; local forge executable was unavailable. GitHub repository: https://github.com/carynyx80/verdant. See [Vercel setup](docs/VERCEL.md) for frontend import settings. No hosted application or verified contract addresses exist.
 
 ## Structure
 `apps/web` — interface · `apps/api` — Nest API · `apps/worker` — indexer
