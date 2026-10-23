@@ -1,0 +1,4 @@
+export const BPS=10_000n;
+export function validateAllocation(weights:number[]){return weights.length===5&&weights.every(w=>Number.isInteger(w)&&w>=0&&w<=10000)&&weights.reduce((a,b)=>a+b,0)===10000}
+export function allocate(value:bigint,weights:number[]){if(value<0n||!validateAllocation(weights))throw Error('Invalid allocation');const amounts=weights.slice(0,4).map(w=>value*BigInt(w)/BPS);return [...amounts,value-amounts.reduce((a,b)=>a+b,0n)]}
+export function buyQuote(reserve:bigint,tokens:bigint,gross:bigint,creatorBps:bigint){if(reserve<0n||tokens<=0n||gross<=0n||creatorBps<100n||creatorBps>1000n)throw Error('Invalid market');const creator=gross*creatorBps/BPS;const protocol=gross*50n/BPS;const net=gross-creator-protocol;return {out:tokens*net/(30n*10n**18n+reserve+net),creator,protocol,net}}

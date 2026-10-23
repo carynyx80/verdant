@@ -1,0 +1,3 @@
+import fs from 'node:fs';import solc from 'solc';
+const sources={};for(const dir of ['src','test','script'])for(const f of fs.readdirSync(`contracts/${dir}`))if(f.endsWith('.sol'))sources[`${dir}/${f}`]={content:fs.readFileSync(`contracts/${dir}/${f}`,'utf8')};
+const result=JSON.parse(solc.compile(JSON.stringify({language:'Solidity',sources,settings:{optimizer:{enabled:true,runs:200},viaIR:true,evmVersion:'shanghai',outputSelection:{'*':{'*':['abi']}}}})));const errors=(result.errors||[]).filter(e=>e.severity==='error');if(errors.length)throw Error(errors.map(e=>e.formattedMessage).join('\n'));console.log('All contracts, Foundry test source and gated deployment script compile with Solidity 0.8.28.');

@@ -1,0 +1,4 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {allocate,buyQuote,validateAllocation} from './economics';
+test('allocation rejects invalid totals, ranges and fractional basis points',()=>{for(const w of [[1,2,3,4,5],[10000,0,0,0,-1],[10000,0,0,0,.1]])assert.equal(validateAllocation(w),false)});
+test('fee conservation across dust and randomized distributions',()=>{let seed=17n;for(let i=0;i<10000;i++){seed=(seed*48271n)%2147483647n;const a=Number(seed%10001n);const b=Number(seed%BigInt(10001-a));const w=[a,b,0,0,10000-a-b];const n=seed*seed;assert.equal(allocate(n,w).reduce((x,y)=>x+y,0n),n)}});
+test('curve output rounds down and never decreases product invariant',()=>{for(let i=1n;i<=1000n;i++){const r=i*10n**16n,t=1_073_000_000n*10n**18n;const q=buyQuote(r,t,i*10n**14n,100n);assert(q.out<t);assert((30n*10n**18n+r+q.net)*(t-q.out)>=(30n*10n**18n+r)*t);assert.equal(q.creator+q.protocol+q.net,i*10n**14n)}});

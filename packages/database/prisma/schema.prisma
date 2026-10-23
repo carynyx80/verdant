@@ -1,0 +1,228 @@
+generator client {
+ provider = "prisma-client-js"
+}
+datasource db {
+ provider = "postgresql"
+ url = env("DATABASE_URL")
+}
+model Token {
+ address String @id
+ market String @unique
+ name String
+ symbol String
+ creator String
+ creatorBps Int
+ metadataURI String
+ blockNumber BigInt
+ blockHash String
+ transactionHash String
+ createdAt DateTime @default(now())
+ @@index([creator])
+ @@index([blockNumber])
+}
+model Trade {
+ id String @id
+ token String
+ trader String
+ buy Boolean
+ bnb String
+ tokens String
+ creatorFee String
+ protocolFee String
+ reserve String
+ tokenReserve String
+ blockNumber BigInt
+ blockHash String
+ transactionHash String
+ logIndex Int
+ createdAt DateTime @default(now())
+ @@unique([transactionHash,logIndex])
+ @@index([token,blockNumber])
+ @@index([trader])
+}
+model ChainEvent {
+ id String @id
+ contract String
+ name String
+ payload Json
+ blockNumber BigInt
+ blockHash String
+ transactionHash String
+ logIndex Int
+ @@unique([transactionHash,logIndex])
+ @@index([contract,name,blockNumber])
+}
+model Checkpoint {
+ id String @id
+ blockNumber BigInt
+ blockHash String
+}
+model TokenMetadata {
+ id String @id @default(cuid())
+ payload Json
+ createdAt DateTime @default(now())
+}
+model User {
+ id String @id @default(cuid())
+ createdAt DateTime @default(now())
+}
+model Wallet {
+ address String @id
+ userId String
+ @@index([userId])
+}
+model AIAgent {
+ id String @id @default(cuid())
+ token String
+ owner String
+ template String
+ status String @default("DISABLED")
+ budgetMicrousd BigInt @default(0)
+ spentMicrousd BigInt @default(0)
+ @@index([token])
+}
+model AgentTask {
+ id String @id
+ agentId String
+ prompt String
+ status String @default("QUEUED")
+ result String?
+ maxMicrousd BigInt
+ createdAt DateTime @default(now())
+ @@index([agentId,status])
+}
+model AgentExpense {
+ id String @id @default(cuid())
+ taskId String @unique
+ agentId String
+ inputTokens Int
+ outputTokens Int
+ costMicrousd BigInt
+ invoiceReference String
+ reconciled Boolean @default(false)
+ createdAt DateTime @default(now())
+ @@index([agentId,reconciled])
+}
+model AuditLog {
+ id String @id @default(cuid())
+ actor String
+ action String
+ payload Json
+ createdAt DateTime @default(now())
+ @@index([createdAt])
+}
+model Notification {
+ id String @id @default(cuid())
+ wallet String
+ payload Json
+ read Boolean @default(false)
+ @@index([wallet,read])
+}
+
+model Launch {
+ id String @id
+ token String
+ payload Json
+ blockNumber BigInt
+ transactionHash String
+ @@index([token,blockNumber])
+}
+
+model BondingCurveState {
+ id String @id
+ token String
+ payload Json
+ blockNumber BigInt
+ transactionHash String
+ @@index([token,blockNumber])
+}
+
+model GraduationEvent {
+ id String @id
+ token String
+ payload Json
+ blockNumber BigInt
+ transactionHash String
+ @@index([token,blockNumber])
+}
+
+model FeeConfiguration {
+ id String @id
+ token String
+ payload Json
+ blockNumber BigInt
+ transactionHash String
+ @@index([token,blockNumber])
+}
+
+model FeeAccrual {
+ id String @id
+ token String
+ payload Json
+ blockNumber BigInt
+ transactionHash String
+ @@index([token,blockNumber])
+}
+
+model FeeDistribution {
+ id String @id
+ token String
+ payload Json
+ blockNumber BigInt
+ transactionHash String
+ @@index([token,blockNumber])
+}
+
+model BuybackExecution {
+ id String @id
+ token String
+ payload Json
+ blockNumber BigInt
+ transactionHash String
+ @@index([token,blockNumber])
+}
+
+model BurnEvent {
+ id String @id
+ token String
+ payload Json
+ blockNumber BigInt
+ transactionHash String
+ @@index([token,blockNumber])
+}
+
+model LiquidityPosition {
+ id String @id
+ token String
+ payload Json
+ blockNumber BigInt
+ transactionHash String
+ @@index([token,blockNumber])
+}
+
+model ProductMilestone {
+ id String @id
+ token String
+ payload Json
+ blockNumber BigInt
+ transactionHash String
+ @@index([token,blockNumber])
+}
+
+model TreasuryPayment {
+ id String @id
+ token String
+ payload Json
+ blockNumber BigInt
+ transactionHash String
+ @@index([token,blockNumber])
+}
+
+model CreatorClaim {
+ id String @id
+ token String
+ payload Json
+ blockNumber BigInt
+ transactionHash String
+ @@index([token,blockNumber])
+}

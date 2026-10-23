@@ -1,0 +1,34 @@
+{
+  "name": "verdant-launchpad",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --filter web build",
+    "test": "node --import tsx --test packages/shared/*.test.ts && node scripts/contracts-test.mjs",
+    "typecheck": "pnpm --filter web typecheck && tsc -p tsconfig.services.json --noEmit",
+    "api": "tsx --tsconfig tsconfig.services.json apps/api/src/main.ts",
+    "worker": "tsx --tsconfig tsconfig.services.json apps/worker/src/main.ts",
+    "db:generate": "prisma generate --schema packages/database/prisma/schema.prisma"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "tsx": "^4.20.6",
+    "@types/node": "^22.18.0",
+    "solc": "0.8.28",
+    "ganache": "^7.9.2",
+    "prisma": "^6.18.0"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.0",
+    "@nestjs/core": "^11.1.0",
+    "@nestjs/platform-express": "^11.1.0",
+    "@prisma/client": "^6.18.0",
+    "bullmq": "^5.61.0",
+    "ioredis": "^5.8.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "viem": "^2.38.0",
+    "zod": "^4.1.0"
+  },
+  "packageManager": "pnpm@11.25.0"
+}
