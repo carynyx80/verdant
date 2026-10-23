@@ -2,13 +2,15 @@
   "name": "verdant-launchpad",
   "private": true,
   "scripts": {
-    "dev": "pnpm --filter web dev",
-    "build": "pnpm --filter web build",
+    "dev": "next dev --hostname 0.0.0.0",
+    "build": "node scripts/sync-web-assets.mjs && next build",
     "test": "node --import tsx --test packages/shared/*.test.ts && node scripts/contracts-test.mjs",
-    "typecheck": "pnpm --filter web typecheck && tsc -p tsconfig.services.json --noEmit",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.services.json --noEmit",
     "api": "tsx --tsconfig tsconfig.services.json apps/api/src/main.ts",
     "worker": "tsx --tsconfig tsconfig.services.json apps/worker/src/main.ts",
-    "db:generate": "prisma generate --schema packages/database/prisma/schema.prisma"
+    "db:generate": "prisma generate --schema packages/database/prisma/schema.prisma",
+    "start": "next start",
+    "build:web-subdirectory": "pnpm --filter web build"
   },
   "devDependencies": {
     "typescript": "^5.9.3",
@@ -16,7 +18,9 @@
     "@types/node": "^22.18.0",
     "solc": "0.8.28",
     "ganache": "^7.9.2",
-    "prisma": "^6.18.0"
+    "prisma": "^6.18.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0"
   },
   "dependencies": {
     "@nestjs/common": "^11.1.0",
@@ -28,7 +32,13 @@
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.2",
     "viem": "^2.38.0",
-    "zod": "^4.1.0"
+    "zod": "^4.1.0",
+    "next": "^15.5.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "wagmi": "^2.18.0",
+    "@tanstack/react-query": "^5.90.0",
+    "lucide-react": "^0.468.0"
   },
   "packageManager": "pnpm@11.25.0",
   "engines": {

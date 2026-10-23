@@ -14,9 +14,9 @@ pnpm api
 pnpm worker
 ```
 
-For Vercel, import this repository with Root Directory `apps/web`; [full deployment settings](docs/VERCEL.md). No credentials are needed to deploy the undeployed UI.
+For Vercel, import this repository with Root Directory left blank (`.`); [full deployment settings](docs/VERCEL.md). No credentials are needed to deploy the undeployed UI.
 
-Web: http://localhost:3000. API: http://localhost:3001. The frontend intentionally works without backend credentials, showing explicit undeployed/empty states. Copy public configuration to `apps/web/.env.local`. Load server variables through a process manager. See `.env.example` and [deployment runbook](docs/DEPLOYMENT.md).
+Web: http://localhost:3000. API: http://localhost:3001. The frontend intentionally works without backend credentials, showing explicit undeployed/empty states. Copy public configuration to root `.env.local` (or `apps/web/.env.local` if using the optional subdirectory entry point). Load server variables through a process manager. See `.env.example` and [deployment runbook](docs/DEPLOYMENT.md).
 
 ```sh
 pnpm typecheck

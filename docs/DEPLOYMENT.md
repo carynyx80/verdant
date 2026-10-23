@@ -1,13 +1,13 @@
 # Deployment runbook — gated, not executed
 
 ## Local development
-Use Node 22 LTS and pnpm 11.25.0. `pnpm install`, `pnpm db:generate`, then `pnpm dev` (web), `pnpm api` and `pnpm worker` in separate processes. Scripts do not implicitly read .env; load environment through your service manager or Node's --env-file support. Next reads apps/web/.env.local.
+Use Node 22 LTS and pnpm 11.25.0. `pnpm install`, `pnpm db:generate`, then `pnpm dev` (web), `pnpm api` and `pnpm worker` in separate processes. Scripts do not implicitly read .env; load environment through your service manager or Node's --env-file support. The root Next.js entry point reads .env.local; the optional apps/web entry point reads apps/web/.env.local.
 
 Start PostgreSQL and Redis with `POSTGRES_PASSWORD=... docker compose -f infrastructure/compose.yaml up -d`. Set DATABASE_URL to match. Apply schema with `pnpm exec prisma migrate deploy --schema packages/database/prisma/schema.prisma`. Start worker only with a verified factory and exact deployment block. No private wallet keys are used by the indexer.
 
 ## Web hosting
 See [Vercel import settings](VERCEL.md) for exact build commands, root directory and public environment variables.
-Deploy apps/web as the Vercel root with pnpm workspace installation; build `pnpm --filter web build`, output `.next`. Set public API HTTPS origin, RPC endpoint, reviewed factory address and WalletConnect project ID. The frontend is a standard Next.js application; it has not been converted or published to Sites' Worker runtime.
+Deploy the repository root to Vercel using the tracked root vercel.json; build `npm run build`, output `.next`. The optional apps/web entry point remains supported. Set public API HTTPS origin, RPC endpoint, reviewed factory address and WalletConnect project ID. The frontend is a standard Next.js application; it has not been converted or published to Sites' Worker runtime.
 
 ## Persistent services
 Run the Nest API and BullMQ worker on a persistent Node host, never a request-only serverless runtime. API currently binds loopback; expose through an authenticated TLS reverse proxy. Use managed PostgreSQL and Redis with TLS, private networking, backups, connection limits, monitoring and authenticated Redis. The supplied Compose file is for local development only. Production metadata writes still need wallet challenge authentication, quotas and durable image hosting before public exposure.

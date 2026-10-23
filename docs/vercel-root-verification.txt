@@ -1,0 +1,20 @@
+Node.js v22.23.4
+PASS clean frozen-lockfile install with dependency-age policy enabled
+PASS clean repository-root production build
+PASS optional apps/web production build
+PASS service TypeScript check
+PASS HTTP 200 /
+PASS HTTP 200 /launch
+PASS HTTP 200 /creator
+PASS HTTP 200 /explore
+PASS HTTP 200 /agents
+PASS HTTP 200 /portfolio
+PASS HTTP 200 /leaderboard
+PASS HTTP 200 /docs
+PASS HTTP 200 /admin
+PASS HTTP 200 /token/0x0000000000000000000000000000000000000001
+PASS HTTP 200 /fees/0x0000000000000000000000000000000000000001
+PASS HTTP 200 /images/studio-sculpture.png
+PASS same-origin undeployed health API
+PASS same-origin empty token API
+PASS unavailable metadata writes return 503
