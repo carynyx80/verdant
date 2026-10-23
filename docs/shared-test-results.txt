@@ -1,0 +1,11 @@
+✔ allocation rejects invalid totals, ranges and fractional basis points (0.44525ms)
+✔ fee conservation across dust and randomized distributions (6.618666ms)
+✔ curve output rounds down and never decreases product invariant (1.685ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 196.637209

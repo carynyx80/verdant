@@ -1,0 +1,37 @@
+bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+This version of µWS is not compatible with your Node.js build:
+
+Error: Cannot find module '../binaries/uws_darwin_arm64_137.node'
+Require stack:
+- /Users/mac/Documents/Codex/2026-10-22/files-pasted-by-the-user-master/outputs/verdant/node_modules/.pnpm/@trufflesuite+uws-js-unofficial@20.30.0-unofficial.0/node_modules/@trufflesuite/uws-js-unofficial/src/uws.js
+- /Users/mac/Documents/Codex/2026-10-22/files-pasted-by-the-user-master/outputs/verdant/node_modules/.pnpm/ganache@7.9.2/node_modules/ganache/dist/node/core.js
+Falling back to a NodeJS implementation; performance may be degraded.
+
+
+PASS Solidity 0.8.28 compilation
+PASS deployed contract size limits
+PASS invalid allocation rolls back launch
+PASS creator fee boundaries
+PASS fixed supply minted once into curve
+PASS buy exact integer quote and reserve accounting
+PASS fee wei conserved and isolated across five buckets
+PASS unauthorized creator claim rejected
+PASS creator entitlement paid once
+PASS forged fee source rejected
+PASS buy slippage and expiry rejected
+PASS sell returns quoted BNB and updates real reserves
+PASS second token has independent credits
+PASS premature and unconfigured graduation rejected
+PASS threshold overshoot rejected without taking funds
+  invariant sequence 4/12
+  invariant sequence 8/12
+  invariant sequence 12/12
+PASS round-trip invariants over 12 sequential trade sizes
+PASS milestone cannot pay without two independent reviewers
+PASS buyback swaps correct token and reduces total supply (mock DEX)
+PASS stale oracle and oversized execution rejected
+PASS AI expense needs matching invoice and two reviewers
+PASS threshold graduation preserves token and BNB allocation (mock V2)
+PASS approved post-graduation route collects BNB creator fees (mock V2)
+
+22 contract checks passed (local EVM; utility tests use mock DEX/oracle; no mainnet or DEX fork verification).

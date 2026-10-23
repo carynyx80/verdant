@@ -1,0 +1,1 @@
+5 API checks passed in unconfigured mode: health, honest empty feed, admin authentication, address validation, metadata persistence guard.
