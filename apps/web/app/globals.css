@@ -1668,3 +1668,20 @@ footer>div:nth-child(2){
 .brand-logo { width:44px; height:44px; object-fit:contain; border-radius:11px; margin-right:11px; flex-shrink:0; }
 footer .brand-logo { width:36px; height:36px; border-radius:9px; margin-right:9px; }
 @media(max-width:760px) { .brand-logo { width:35px; height:35px; border-radius:9px; margin-right:8px; } footer .brand-logo { width:32px; height:32px; } }
+
+/* Functional workspaces */
+select {width:100%;margin-top:9px;padding:12px 14px;border:1px solid #ded0d0;border-radius:9px;background:#fbf7f1;color:var(--plum);font:inherit;}
+.filter-panel {display:grid;grid-template-columns:1fr 1fr auto;gap:24px;align-items:center;margin-bottom:18px;}
+.filter-panel label {margin:0;}
+.card-actions {display:flex;align-items:center;gap:16px;justify-content:space-between;margin:20px 0;flex-wrap:wrap;}
+.creator-card .card-actions .button {font-size:10px;padding:12px 14px;}
+.agent-detail {margin-top:25px;max-width:850px;}
+.agent-detail>.pill {float:right;}
+.agent-detail>svg {color:var(--accent);margin-bottom:20px;}
+.agent-detail li {line-height:1.9;font-size:13px;color:var(--muted);}
+.health-output {max-height:400px;overflow:auto;background:#f4e9e0;border-radius:9px;padding:20px;font:11px var(--mono);white-space:pre-wrap;word-break:break-word;}
+.launch-availability {border-left:3px solid #b78373;padding:13px 17px;background:#eee0d5;border-radius:0 9px 9px 0;font-size:12px;line-height:1.8;max-width:1150px;color:#73505e;}
+.launch-availability small {display:block;font-size:10px;color:#836272;}
+.validation-errors {font-size:11px;line-height:1.8;color:#a53f50;padding-left:18px;margin:0 0 25px;}
+.trade-panel>small {display:block;}
+@media(max-width:760px){.filter-panel{grid-template-columns:1fr;gap:18px}.launch-availability{font-size:11px}.creator-card .card-actions{gap:12px}.table-row>span{overflow-wrap:anywhere}}

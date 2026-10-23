@@ -19,15 +19,15 @@ This source is an unaudited development implementation. No contracts have been d
 2. No BNB fork tests, real DEX migration tests, malicious DEX/token tests, MEV simulation or long-running invariant harness.
 3. Graduation starting-price discontinuity needs quantitative design review. A seeded external pool can block migration. Creator can launch with no working adapter, stranding graduation; deployment validation must prevent this.
 4. Utility escrow cannot currently release funds into candidate utility modules. There is deliberately no arbitrary admin withdrawal path. Candidate modules are not factory-integrated and should not be advertised as automated live utilities.
-5. ApprovedFeeRoute is not exposed in the frontend. Its route-bound fees are not enforced by external pools. No audited Infinity hook is implemented.
+5. The frontend supports ApprovedFeeRoute when a verified route and DEX quote are available. Its route-bound fees are not enforced by external pools. No audited Infinity hook is implemented.
 6. No production TWAP oracle implementation or tested liquidity impact cap. No keeper utility scheduling or execution reconciliation.
 7. AI price reservation is not a provider-enforced spending cap. Unknown provider outcomes remain held for reconciliation; automatic retry must never bill twice. Price configuration and a conservative input/output reservation are checked before any provider call; provider-side billing limits and failure reconciliation remain required. Do not activate until billing reconciliation is tested.
 8. Database and Redis integration untested here; migration generated but not applied. Events feed only launches and trades plus raw fee/graduation logs; derived utility projections are schema scaffolding.
-9. Metadata writes need wallet authentication, request size/rate limits, moderation, canonical persistent hosting and image upload storage. No external metadata URLs are fetched by server.
-10. Administrative UI is a protected-state explanation, not a complete operations console; backend only exposes authenticated health. No wallet-signed admin sessions or multisig transaction UI.
-11. Discovery rankings, holder list, timeframe OHLC, creator analytics and portfolio token reads remain incomplete. UI contains honest empty states.
-12. Deep-reorg recovery is fail-stop with manual replay, not automated rollback. API token listing checks canonical cursor and freshness; other data endpoints need the same global availability gate before public release.
-13. Dependency vulnerability audit and dependency pinning/updates must pass before production. CI is supplied but has not run remotely. Foundry executable unavailable locally.
+9. Metadata writes now require payload-bound, expiring single-use EOA signatures and request size/rate limits. PostgreSQL-backed replay/race tests, shared edge quotas, moderation, canonical persistent hosting and image upload storage remain necessary. No external metadata URLs are fetched by server.
+10. Administrative UI exposes authenticated read-only health, not a complete operations console. No wallet-signed admin sessions or multisig transaction UI.
+11. Discovery sorting/filters, observed holder balances, timestamp-based chart ranges, creator claims and portfolio reads are implemented. Data is bounded to visible launches and observed blocks; charts are trade-price lines, not OHLC candles. Full-history analytics remain outstanding.
+12. Indexer performs factory-scoped rollback to retained canonical checkpoints, with transactional cursor locking. Deep reorgs with no retained ancestor pause for manual reconciliation. PostgreSQL-backed replay/race tests remain outstanding. Read-only discovery uses confirmed RPC state; indexed trade history checks cursor canonicality and freshness.
+13. Dependency vulnerability audit and dependency pinning/updates must pass before production. CI has run remotely; Foundry is unavailable locally. Check current GitHub checks for the exact published commit.
 14. No notifications provider, production observability pipeline, backup restore rehearsal or incident response drill.
 
 ## Administrative trust

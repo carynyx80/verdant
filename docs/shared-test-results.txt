@@ -1,11 +1,64 @@
-✔ allocation rejects invalid totals, ranges and fractional basis points (0.44525ms)
-✔ fee conservation across dust and randomized distributions (6.618666ms)
-✔ curve output rounds down and never decreases product invariant (1.685ms)
-ℹ tests 3
-ℹ suites 0
-ℹ pass 3
-ℹ fail 0
-ℹ cancelled 0
-ℹ skipped 0
-ℹ todo 0
-ℹ duration_ms 196.637209
+TAP version 13
+# Subtest: allocation rejects invalid totals, ranges and fractional basis points
+ok 1 - allocation rejects invalid totals, ranges and fractional basis points
+  ---
+  duration_ms: 0.614833
+  type: 'test'
+  ...
+# Subtest: fee conservation across dust and randomized distributions
+ok 2 - fee conservation across dust and randomized distributions
+  ---
+  duration_ms: 15.850875
+  type: 'test'
+  ...
+# Subtest: curve output rounds down and never decreases product invariant
+ok 3 - curve output rounds down and never decreases product invariant
+  ---
+  duration_ms: 1.680041
+  type: 'test'
+  ...
+# Subtest: rejects malformed and overflowing financial inputs without throwing
+ok 4 - rejects malformed and overflowing financial inputs without throwing
+  ---
+  duration_ms: 0.810584
+  type: 'test'
+  ...
+# Subtest: filters and discovery sorting use actual token properties
+ok 5 - filters and discovery sorting use actual token properties
+  ---
+  duration_ms: 0.173833
+  type: 'test'
+  ...
+# Subtest: chart frames filter by actual block time and exclude untimed data
+ok 6 - chart frames filter by actual block time and exclude untimed data
+  ---
+  duration_ms: 2.02325
+  type: 'test'
+  ...
+# Subtest: identity validation matches contract byte limits and rejects unsafe links
+ok 7 - identity validation matches contract byte limits and rejects unsafe links
+  ---
+  duration_ms: 0.41875
+  type: 'test'
+  ...
+# Subtest: metadata hashing is canonical and binds every published field
+ok 8 - metadata hashing is canonical and binds every published field
+  ---
+  duration_ms: 2.099
+  type: 'test'
+  ...
+# Subtest: metadata authorization binds the wallet, payload, nonce, origin and expiry
+ok 9 - metadata authorization binds the wallet, payload, nonce, origin and expiry
+  ---
+  duration_ms: 33.455708
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 560.756791

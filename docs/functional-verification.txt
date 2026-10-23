@@ -1,0 +1,19 @@
+2026-10-23 functional repair verification (Node 22.23.4)
+
+PASS root Next.js production build
+PASS web and persistent-service TypeScript checks
+PASS Prisma client generation against all migrations
+PASS 9 shared tests (financial inputs, economic samples, discovery filters/sorting,
+     timestamp ranges, metadata canonicalization and signed-message tamper checks)
+PASS 25 local EVM checks (22 contract checks + 3 read API integration checks)
+PASS 12 application route responses
+PASS 6 same-origin API status/availability checks
+PASS 6 persistent Nest API status/availability checks (database unconfigured)
+PASS browser: creator connection state, required identity fields, 101% allocation
+     disables review, specific agent detail navigation
+
+Limitations: no wallet transaction in a real browser, no BNB/fork deployment,
+no PostgreSQL/Redis end-to-end run, no database-backed nonce replay/race test,
+no real DEX/oracle integration, no independent contract audit. Utility modules
+remain disconnected from utility fee escrow. Agent pages are templates and do
+not represent running funded services. Full-history analytics are not claimed.

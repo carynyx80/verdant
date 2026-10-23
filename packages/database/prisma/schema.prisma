@@ -6,6 +6,7 @@ datasource db {
  url = env("DATABASE_URL")
 }
 model Token {
+ factory String @default("")
  address String @id
  market String @unique
  name String
@@ -41,6 +42,7 @@ model Trade {
  @@index([trader])
 }
 model ChainEvent {
+ factory String @default("")
  id String @id
  contract String
  name String
@@ -225,4 +227,24 @@ model CreatorClaim {
  blockNumber BigInt
  transactionHash String
  @@index([token,blockNumber])
+}
+
+model WalletNonce {
+ id String @id
+ wallet String
+ payloadHash String
+ message String
+ expiresAt DateTime
+ consumedAt DateTime?
+ @@index([wallet,expiresAt])
+ @@index([expiresAt])
+}
+
+model CanonicalBlock {
+ id String @id
+ checkpointId String
+ blockNumber BigInt
+ blockHash String
+ @@unique([checkpointId,blockNumber])
+ @@index([checkpointId,blockNumber])
 }

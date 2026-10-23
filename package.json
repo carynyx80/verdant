@@ -4,10 +4,10 @@
   "scripts": {
     "dev": "next dev --hostname 0.0.0.0",
     "build": "node scripts/sync-web-assets.mjs && next build",
-    "test": "node --import tsx --test packages/shared/*.test.ts && node scripts/contracts-test.mjs",
+    "test": "node --import tsx --test packages/shared/*.test.ts && node --import tsx scripts/contracts-test.mjs",
     "typecheck": "tsc --noEmit && tsc -p tsconfig.services.json --noEmit",
-    "api": "tsx --tsconfig tsconfig.services.json apps/api/src/main.ts",
-    "worker": "tsx --tsconfig tsconfig.services.json apps/worker/src/main.ts",
+    "api": "node scripts/run-service.mjs api",
+    "worker": "node scripts/run-service.mjs worker",
     "db:generate": "prisma generate --schema packages/database/prisma/schema.prisma",
     "start": "next start",
     "build:web-subdirectory": "pnpm --filter web build"
